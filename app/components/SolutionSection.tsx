@@ -1,40 +1,41 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { MessageCircle, Video, Bot, Lock, TrendingUp, Globe2, PlayCircle } from "lucide-react";
 
 const features = [
     {
-        icon: "💬",
+        icon: <MessageCircle className="w-6 h-6 text-teal-600" />,
         title: "WhatsApp & SMS Delivery",
         description: "Meet workers where they are. No app downloads, no complex logins.",
         detail: "Instant delivery to 95% of workers who already use WhatsApp daily.",
     },
     {
-        icon: "🎥",
+        icon: <Video className="w-6 h-6 text-teal-600" />,
         title: "Zero Literacy Barrier",
         description: "Audio, video, and voice reply support for all skill levels.",
         detail: "Workers can listen to content and respond with voice messages.",
     },
     {
-        icon: "🤖",
+        icon: <Bot className="w-6 h-6 text-teal-600" />,
         title: "24/7 AI Chatbot",
         description: "Instant doubt resolution anytime, in any language.",
         detail: "AI-powered assistant answers questions and provides guidance.",
     },
     {
-        icon: "🔒",
+        icon: <Lock className="w-6 h-6 text-teal-600" />,
         title: "Secure Knowledge Base",
         description: "Company-specific content that stays confidential.",
         detail: "Your SOPs, policies, and training materials in one secure place.",
     },
     {
-        icon: "📈",
+        icon: <TrendingUp className="w-6 h-6 text-teal-600" />,
         title: "Real-time Analytics",
         description: "HR dashboards with completion rates and insights.",
         detail: "Track progress, identify gaps, and ensure compliance at scale.",
     },
     {
-        icon: "🌍",
+        icon: <Globe2 className="w-6 h-6 text-teal-600" />,
         title: "12+ Indian Languages",
         description: "Regional language support for maximum reach.",
         detail: "Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, and more.",
@@ -133,10 +134,7 @@ export default function SolutionSection() {
                             className="btn btn-primary whitespace-nowrap"
                         >
                             Request Demo
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
+                            <PlayCircle className="w-5 h-5" />
                         </a>
                     </div>
                 </div>

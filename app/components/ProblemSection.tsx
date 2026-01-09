@@ -1,35 +1,36 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Ban, FileText, BarChart3, Languages, Monitor, Clock } from "lucide-react";
 
 const painPoints = [
     {
-        icon: "🚫",
+        icon: <Ban className="w-6 h-6 text-red-600" />,
         title: "No Structured Training",
         description: "Informal, inconsistent training that varies by location and supervisor",
     },
     {
-        icon: "📝",
+        icon: <FileText className="w-6 h-6 text-red-600" />,
         title: "Manual Paper-Based Delivery",
         description: "Physical handouts that get lost, damaged, or never read",
     },
     {
-        icon: "📊",
+        icon: <BarChart3 className="w-6 h-6 text-red-600" />,
         title: "No Tracking or Audit Trail",
         description: "Zero visibility into who completed what training and when",
     },
     {
-        icon: "🌐",
+        icon: <Languages className="w-6 h-6 text-red-600" />,
         title: "Language & Literacy Barriers",
         description: "English-only content for workers who speak regional languages",
     },
     {
-        icon: "💻",
+        icon: <Monitor className="w-6 h-6 text-red-600" />,
         title: "LMS Built for Desk Workers",
         description: "Complex systems requiring computers that frontline workers don't have",
     },
     {
-        icon: "⏰",
+        icon: <Clock className="w-6 h-6 text-red-600" />,
         title: "Time-Consuming Sessions",
         description: "Long training sessions that disrupt production schedules",
     },
@@ -92,7 +93,7 @@ export default function ProblemSection() {
                             style={{ animationDelay: `${index * 0.1}s` }}
                         >
                             <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">
+                                <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                                     {point.icon}
                                 </div>
                                 <div>

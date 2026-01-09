@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { BookOpen, Video, CheckCircle2, Rocket } from "lucide-react";
 
 export default function HeroSection() {
     const [isVisible, setIsVisible] = useState(false);
@@ -15,14 +16,14 @@ export default function HeroSection() {
     }, []);
 
     const messages = [
-        { type: "incoming", text: "📚 Today's Training: Safety Protocol Module 3", time: "10:30 AM" },
-        { type: "incoming", text: "🎥 Watch this 2-min video and reply with your answer", time: "10:30 AM" },
+        { type: "incoming", text: "Today's Training: Safety Protocol Module 3", time: "10:30 AM", icon: <BookOpen className="w-4 h-4 inline-block mr-2 text-teal-400" /> },
+        { type: "incoming", text: "Watch this 2-min video and reply with your answer", time: "10:30 AM", icon: <Video className="w-4 h-4 inline-block mr-2 text-teal-400" /> },
         { type: "outgoing", text: "1", time: "10:32 AM" },
-        { type: "incoming", text: "✅ Correct! You scored 100%. Certificate sent!", time: "10:32 AM" },
+        { type: "incoming", text: "Correct! You scored 100%. Certificate sent!", time: "10:32 AM", icon: <CheckCircle2 className="w-4 h-4 inline-block mr-2 text-emerald-400" /> },
     ];
 
     return (
-        <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+        <section className="relative min-h-screen flex items-start md:items-center overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-30">
                 <div className="absolute inset-0" style={{
@@ -31,14 +32,14 @@ export default function HeroSection() {
                 }} />
             </div>
 
-            <div className="container relative z-10 py-24 md:py-32">
+            <div className="container relative z-10 pt-40 pb-24 md:py-32">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     {/* Left Content */}
                     <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
                         {/* Badge */}
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/10 border border-teal-500/20 rounded-full text-teal-400 text-sm font-medium mb-6">
-                            <span className="w-2 h-2 bg-teal-400 rounded-full animate-pulse-slow" />
-                            🚀 Launching in 2025
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/10 border border-teal-500/20 rounded-full text-teal-400 text-sm font-medium mb-6 mt-24 md:mt-0">
+                            <Rocket className="w-4 h-4 animate-pulse-slow" />
+                            Launching in 2025
                         </div>
 
                         {/* Headline */}
@@ -63,7 +64,7 @@ export default function HeroSection() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </a>
-                            <a href="#contact" className="btn btn-secondary text-white border-slate-600 hover:border-teal-500 hover:bg-teal-500/10">
+                            <a href="#contact" className="btn btn-outline">
                                 Request Enterprise Demo
                             </a>
                         </div>
@@ -109,7 +110,10 @@ export default function HeroSection() {
                                                 }`}
                                             style={{ animationDelay: `${idx * 0.3}s` }}
                                         >
-                                            {msg.text}
+                                            <div className="flex items-start gap-1">
+                                                {'icon' in msg && msg.icon}
+                                                <span>{msg.text}</span>
+                                            </div>
                                             <div className="chat-time">{msg.time}</div>
                                         </div>
                                     ))}

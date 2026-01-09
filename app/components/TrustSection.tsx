@@ -1,20 +1,21 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { Target, CircleDollarSign, Handshake, Check } from "lucide-react";
 
 const trustPoints = [
     {
-        icon: "🎯",
+        icon: <Target className="w-6 h-6 text-teal-600" />,
         title: "7-day Pilot",
         description: "Free validation with your real workers and content",
     },
     {
-        icon: "💰",
+        icon: <CircleDollarSign className="w-6 h-6 text-teal-600" />,
         title: "₹75L Seed Round",
         description: "Raising funds to scale operations nationally",
     },
     {
-        icon: "🤝",
+        icon: <Handshake className="w-6 h-6 text-teal-600" />,
         title: "Partnerships",
         description: "Seeking mentorship & pilot partnerships",
     },
@@ -169,9 +170,7 @@ export default function TrustSection() {
                         {isSubmitted ? (
                             <div className="text-center py-12">
                                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-teal-100 flex items-center justify-center">
-                                    <svg className="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                    </svg>
+                                    <Check className="w-8 h-8 text-teal-600" />
                                 </div>
                                 <h4 className="text-xl font-semibold text-slate-900 mb-2">
                                     Thank you!

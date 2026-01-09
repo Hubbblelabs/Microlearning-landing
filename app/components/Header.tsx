@@ -36,7 +36,7 @@ export default function Header() {
                         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center">
                             <span className="text-white font-bold text-lg">M</span>
                         </div>
-                        <span className="text-white font-bold text-xl hidden sm:block">
+                        <span className="text-white font-bold text-xl">
                             Microlearning
                         </span>
                     </a>
