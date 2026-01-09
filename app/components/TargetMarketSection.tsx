@@ -1,35 +1,39 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { Factory, Package, Truck, Utensils, Wrench, MessageCircle } from "lucide-react";
+import Card from "./ui/Card";
+import Badge from "./ui/Badge";
+import Container from "./ui/Container";
+import Section from "./ui/Section";
+import { StaggerContainer, StaggerItem, ScrollReveal } from "./animations/ScrollAnimations";
 
 const segments = [
     {
-        icon: <Factory className="w-8 h-8 text-teal-600" />,
+        icon: <Factory className="w-8 h-8" />,
         title: "Factories",
         description: "Manufacturing plants, assembly lines, production facilities",
         workers: "50M+",
     },
     {
-        icon: <Package className="w-8 h-8 text-teal-600" />,
+        icon: <Package className="w-8 h-8" />,
         title: "Warehouses",
         description: "Distribution centers, fulfillment hubs, storage facilities",
         workers: "30M+",
     },
     {
-        icon: <Truck className="w-8 h-8 text-teal-600" />,
+        icon: <Truck className="w-8 h-8" />,
         title: "Logistics",
         description: "Delivery drivers, fleet operators, last-mile workers",
         workers: "45M+",
     },
     {
-        icon: <Utensils className="w-8 h-8 text-teal-600" />,
+        icon: <Utensils className="w-8 h-8" />,
         title: "QSR",
         description: "Quick service restaurants, food chains, kitchens",
         workers: "25M+",
     },
     {
-        icon: <Wrench className="w-8 h-8 text-teal-600" />,
+        icon: <Wrench className="w-8 h-8" />,
         title: "Field Service",
         description: "Technicians, repair crews, on-site service teams",
         workers: "35M+",
@@ -37,61 +41,28 @@ const segments = [
 ];
 
 export default function TargetMarketSection() {
-    const [visibleItems, setVisibleItems] = useState<number[]>([]);
-    const sectionRef = useRef<HTMLElement>(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                if (entries[0].isIntersecting) {
-                    segments.forEach((_, index) => {
-                        setTimeout(() => {
-                            setVisibleItems((prev) => [...prev, index]);
-                        }, index * 120);
-                    });
-                }
-            },
-            { threshold: 0.2 }
-        );
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
-        return () => observer.disconnect();
-    }, []);
-
     return (
-        <section
-            id="market"
-            ref={sectionRef}
-            className="section bg-gradient-to-b from-white to-slate-50"
-        >
-            <div className="container">
+        <Section id="market" spacing="xl" className="bg-gradient-to-b from-white to-slate-50">
+            <Container>
                 {/* Section Header */}
                 <div className="text-center mb-16">
-                    <span className="inline-block px-4 py-1.5 bg-purple-50 text-purple-600 text-sm font-medium rounded-full mb-4">
+                    <Badge variant="info" size="md" className="mb-4 bg-purple-50 text-purple-700 border-purple-200">
                         Target Market
-                    </span>
-                    <h2 className="mb-4">
+                    </Badge>
+                    <h2 className="mb-6 text-slate-900">
                         Built for <span className="text-gradient">Every Industry</span>
                     </h2>
-                    <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+                    <p className="text-slate-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
                         Wherever frontline workers operate, Microlearning delivers.
                     </p>
                 </div>
 
-                {/* Segment Cards - Horizontal Scroll on Mobile */}
-                <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-5 lg:overflow-visible lg:pb-0">
+                {/* Segment Cards */}
+                <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
                     {segments.map((segment, index) => (
-                        <div
-                            key={index}
-                            className={`flex-shrink-0 w-64 lg:w-auto snap-center card group ${visibleItems.includes(index) ? "animate-fade-in-up" : "opacity-0"
-                                }`}
-                            style={{ animationDelay: `${index * 0.1}s` }}
-                        >
-                            <div className="text-center">
-                                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-teal-50 to-emerald-50 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <StaggerItem key={index}>
+                            <Card hover className="h-full text-center group">
+                                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-teal-50 to-emerald-50 flex items-center justify-center group-hover:scale-110 transition-transform duration-[var(--transition-base)] text-teal-600">
                                     {segment.icon}
                                 </div>
                                 <h4 className="text-lg font-semibold text-slate-900 mb-2">
@@ -100,31 +71,33 @@ export default function TargetMarketSection() {
                                 <p className="text-slate-500 text-sm mb-3 leading-relaxed">
                                     {segment.description}
                                 </p>
-                                <div className="inline-block px-3 py-1 bg-teal-50 text-teal-700 text-sm font-semibold rounded-full">
+                                <Badge variant="primary" size="sm" className="inline-block">
                                     {segment.workers} workers
-                                </div>
-                            </div>
-                        </div>
+                                </Badge>
+                            </Card>
+                        </StaggerItem>
                     ))}
-                </div>
+                </StaggerContainer>
 
                 {/* WhatsApp Insight */}
-                <div className="mt-16 relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl opacity-10" />
-                    <div className="relative p-8 md:p-12 text-center">
-                        <div className="inline-flex items-center justify-center w-20 h-20 bg-green-500 rounded-full mb-6">
-                            <MessageCircle className="w-10 h-10 text-white" />
+                <ScrollReveal direction="up">
+                    <div className="relative overflow-hidden rounded-3xl">
+                        <div className="absolute inset-0 bg-[image:linear-gradient(135deg,_var(--whatsapp)_0%,_var(--whatsapp-dark)_100%)] opacity-10" />
+                        <div className="relative p-8 md:p-12 text-center">
+                            <div className="inline-flex items-center justify-center w-20 h-20 bg-[var(--whatsapp)] rounded-full mb-6 shadow-[var(--shadow-lg)]">
+                                <MessageCircle className="w-10 h-10 text-white" />
+                            </div>
+                            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                                <span className="text-green-600">95%</span> of workers already use WhatsApp
+                            </h3>
+                            <p className="text-slate-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+                                No new apps to install. No training on how to use the platform.
+                                Workers receive training on the same app they use to chat with family.
+                            </p>
                         </div>
-                        <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
-                            <span className="text-green-600">95%</span> of workers already use WhatsApp
-                        </h3>
-                        <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-                            No new apps to install. No training on how to use the platform.
-                            Workers receive training on the same app they use to chat with family.
-                        </p>
                     </div>
-                </div>
-            </div>
-        </section>
+                </ScrollReveal>
+            </Container>
+        </Section>
     );
 }

@@ -1,94 +1,192 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { BookOpen, Video, CheckCircle2, Rocket } from "lucide-react";
+import { motion } from "framer-motion";
+import { BookOpen, Video, CheckCircle2, Rocket, Shield, Zap, Users } from "lucide-react";
+import Button from "./ui/Button";
+import Badge from "./ui/Badge";
+import Container from "./ui/Container";
+import Section from "./ui/Section";
+import { ScrollReveal } from "./animations/ScrollAnimations";
 
 export default function HeroSection() {
-    const [isVisible, setIsVisible] = useState(false);
-    const [messageIndex, setMessageIndex] = useState(0);
-
-    useEffect(() => {
-        setIsVisible(true);
-        const interval = setInterval(() => {
-            setMessageIndex((prev) => (prev < 3 ? prev + 1 : prev));
-        }, 800);
-        return () => clearInterval(interval);
-    }, []);
-
     const messages = [
-        { type: "incoming", text: "Today's Training: Safety Protocol Module 3", time: "10:30 AM", icon: <BookOpen className="w-4 h-4 inline-block mr-2 text-teal-400" /> },
-        { type: "incoming", text: "Watch this 2-min video and reply with your answer", time: "10:30 AM", icon: <Video className="w-4 h-4 inline-block mr-2 text-teal-400" /> },
-        { type: "outgoing", text: "1", time: "10:32 AM" },
-        { type: "incoming", text: "Correct! You scored 100%. Certificate sent!", time: "10:32 AM", icon: <CheckCircle2 className="w-4 h-4 inline-block mr-2 text-emerald-400" /> },
+        { 
+            type: "incoming", 
+            text: "Today's Training: Safety Protocol Module 3", 
+            time: "10:30 AM", 
+            icon: <BookOpen className="w-4 h-4 inline-block mr-2 text-teal-400" /> 
+        },
+        { 
+            type: "incoming", 
+            text: "Watch this 2-min video and reply with your answer", 
+            time: "10:30 AM", 
+            icon: <Video className="w-4 h-4 inline-block mr-2 text-teal-400" /> 
+        },
+        { 
+            type: "outgoing", 
+            text: "1", 
+            time: "10:32 AM" 
+        },
+        { 
+            type: "incoming", 
+            text: "Correct! You scored 100%. Certificate sent!", 
+            time: "10:32 AM", 
+            icon: <CheckCircle2 className="w-4 h-4 inline-block mr-2 text-emerald-400" /> 
+        },
+    ];
+
+    const trustSignals = [
+        { icon: <Shield className="w-4 h-4" />, text: "ISO 27001 Compliant" },
+        { icon: <Zap className="w-4 h-4" />, text: "99.9% Uptime SLA" },
+        { icon: <Users className="w-4 h-4" />, text: "250M+ Workers Reach" },
     ];
 
     return (
-        <section className="relative min-h-screen flex items-start md:items-center overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-30">
+        <Section spacing="none" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+            {/* Background Pattern - Professional, Subtle */}
+            <div className="absolute inset-0 opacity-20">
                 <div className="absolute inset-0" style={{
-                    backgroundImage: `radial-gradient(circle at 25% 25%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
-                           radial-gradient(circle at 75% 75%, rgba(5, 150, 105, 0.1) 0%, transparent 50%)`
+                    backgroundImage: `radial-gradient(circle at 25% 25%, rgba(20, 184, 166, 0.08) 0%, transparent 50%),
+                           radial-gradient(circle at 75% 75%, rgba(5, 150, 105, 0.08) 0%, transparent 50%)`
+                }} />
+                {/* Grid Pattern */}
+                <div className="absolute inset-0" style={{
+                    backgroundImage: `linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                                      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)`,
+                    backgroundSize: '64px 64px'
                 }} />
             </div>
 
-            <div className="container relative z-10 pt-40 pb-24 md:py-32">
+            <Container className="relative z-10 pt-32 pb-20 md:pt-40 md:pb-28">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    {/* Left Content */}
-                    <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-                        {/* Badge */}
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/10 border border-teal-500/20 rounded-full text-teal-400 text-sm font-medium mb-6 mt-24 md:mt-0">
-                            <Rocket className="w-4 h-4 animate-pulse-slow" />
-                            Launching in 2025
-                        </div>
+                    {/* Left Content - Value Proposition */}
+                    <div className="max-w-2xl">
+                        {/* Launch Badge */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, ease: [0, 0, 0.2, 1] }}
+                        >
+                            <Badge variant="primary" size="md" className="mb-6 bg-teal-500/10 border-teal-500/20 text-teal-300">
+                                <Rocket className="w-4 h-4" />
+                                Launching in 2025
+                            </Badge>
+                        </motion.div>
 
-                        {/* Headline */}
-                        <h1 className="text-white mb-6">
-                            <span className="text-gradient">AI-Powered</span> Microlearning for{" "}
+                        {/* Headline - Clear, Concise Value */}
+                        <motion.h1 
+                            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.1, ease: [0, 0, 0.2, 1] }}
+                        >
+                            <span className="text-gradient">AI-Powered</span> Training for{" "}
                             <span className="text-gradient">Frontline Workers</span>
-                        </h1>
+                        </motion.h1>
 
-                        {/* Subtext */}
-                        <p className="text-slate-300 text-lg md:text-xl mb-8 max-w-xl leading-relaxed">
+                        {/* Value Prop - Digestible in < 5s */}
+                        <motion.p 
+                            className="text-slate-300 text-lg md:text-xl mb-8 leading-relaxed"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2, ease: [0, 0, 0.2, 1] }}
+                        >
                             2-3 minute training modules delivered via{" "}
                             <span className="text-green-400 font-semibold">WhatsApp</span> &{" "}
                             <span className="text-blue-400 font-semibold">SMS</span> in 12+ Indian languages.
-                            No app downloads. No literacy barriers.
-                        </p>
+                            <br />
+                            <span className="text-white font-medium">No app downloads. No literacy barriers.</span>
+                        </motion.p>
 
-                        {/* CTAs */}
-                        <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                            <a href="#contact" className="btn btn-primary text-base">
-                                Book a 7-day Pilot
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        {/* CTAs - Clear Hierarchy */}
+                        <motion.div 
+                            className="flex flex-col sm:flex-row gap-4 mb-10"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.3, ease: [0, 0, 0.2, 1] }}
+                        >
+                            <Button 
+                                variant="primary" 
+                                size="lg"
+                                onClick={() => window.location.href = '#contact'}
+                                className="group"
+                            >
+                                Book a 7-Day Pilot
+                                <motion.svg 
+                                    className="w-5 h-5" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"
+                                    whileHover={{ x: 4 }}
+                                    transition={{ duration: 0.2 }}
+                                >
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                </svg>
-                            </a>
-                            <a href="#contact" className="btn btn-outline">
-                                Request Enterprise Demo
-                            </a>
-                        </div>
+                                </motion.svg>
+                            </Button>
+                            <Button 
+                                variant="outline" 
+                                size="lg"
+                                onClick={() => window.location.href = '#contact'}
+                            >
+                                Request Demo
+                            </Button>
+                        </motion.div>
 
-                        {/* Stats Pills */}
-                        <div className="flex flex-wrap gap-3">
+                        {/* Stats - Social Proof */}
+                        <motion.div 
+                            className="flex flex-wrap gap-3 mb-8"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.4, ease: [0, 0, 0.2, 1] }}
+                        >
                             <div className="stat-pill">
                                 <span className="text-teal-400 font-bold">250M+</span>
-                                <span className="text-slate-300">Workers</span>
+                                <span className="text-slate-300 text-sm">Workers</span>
                             </div>
                             <div className="stat-pill">
-                                <span className="text-teal-400 font-bold">₹30,000+ Cr</span>
-                                <span className="text-slate-300">Market</span>
+                                <span className="text-teal-400 font-bold">₹30K Cr</span>
+                                <span className="text-slate-300 text-sm">Market</span>
                             </div>
                             <div className="stat-pill">
                                 <span className="text-teal-400 font-bold">2-3 Min</span>
-                                <span className="text-slate-300">Modules</span>
+                                <span className="text-slate-300 text-sm">Modules</span>
                             </div>
-                        </div>
+                        </motion.div>
+
+                        {/* Trust Signals */}
+                        <motion.div 
+                            className="flex flex-wrap gap-4 pt-6 border-t border-white/10"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.6, delay: 0.5, ease: [0, 0, 0.2, 1] }}
+                        >
+                            {trustSignals.map((signal, idx) => (
+                                <div key={idx} className="flex items-center gap-2 text-slate-400 text-sm">
+                                    <div className="text-teal-400">{signal.icon}</div>
+                                    <span>{signal.text}</span>
+                                </div>
+                            ))}
+                        </motion.div>
                     </div>
 
-                    {/* Right Content - Phone Mockup */}
-                    <div className={`flex justify-center lg:justify-end ${isVisible ? 'animate-slide-right stagger-2' : 'opacity-0'}`}>
-                        <div className="phone-frame animate-float">
+                    {/* Right Content - Product Demo (Phone Mockup) */}
+                    <motion.div 
+                        className="flex justify-center lg:justify-end"
+                        initial={{ opacity: 0, x: 40 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 0.3, ease: [0, 0, 0.2, 1] }}
+                    >
+                        <motion.div 
+                            className="phone-frame"
+                            animate={{ 
+                                y: [0, -12, 0],
+                            }}
+                            transition={{ 
+                                duration: 6, 
+                                repeat: Infinity, 
+                                ease: "easeInOut" 
+                            }}
+                        >
                             <div className="phone-screen">
                                 <div className="phone-notch" />
 
@@ -103,33 +201,31 @@ export default function HeroSection() {
 
                                 {/* Chat Messages */}
                                 <div className="whatsapp-chat">
-                                    {messages.map((msg, idx) => (
-                                        <div
-                                            key={idx}
-                                            className={`chat-bubble ${msg.type} ${idx <= messageIndex ? 'animate-message' : 'opacity-0'
-                                                }`}
-                                            style={{ animationDelay: `${idx * 0.3}s` }}
+                                    {messages.map((msg, index) => (
+                                        <motion.div
+                                            key={index}
+                                            initial={{ opacity: 0, x: msg.type === 'incoming' ? -20 : 20, scale: 0.95 }}
+                                            animate={{ opacity: 1, x: 0, scale: 1 }}
+                                            transition={{ 
+                                                duration: 0.4, 
+                                                delay: 0.6 + (index * 0.3),
+                                                ease: [0, 0, 0.2, 1]
+                                            }}
+                                            className={`chat-bubble ${msg.type}`}
                                         >
-                                            <div className="flex items-start gap-1">
-                                                {'icon' in msg && msg.icon}
-                                                <span>{msg.text}</span>
+                                            <div>
+                                                {msg.icon}
+                                                {msg.text}
                                             </div>
                                             <div className="chat-time">{msg.time}</div>
-                                        </div>
+                                        </motion.div>
                                     ))}
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
-            </div>
-
-            {/* Scroll Indicator */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-                <svg className="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-            </div>
-        </section>
+            </Container>
+        </Section>
     );
 }
