@@ -1,17 +1,24 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { Users, Building2, Check } from "lucide-react";
-import Card from "./ui/Card";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Badge from "./ui/Badge";
 import Button from "./ui/Button";
 import Container from "./ui/Container";
 import Section from "./ui/Section";
-import { ScrollReveal, StaggerContainer, StaggerItem } from "./animations/ScrollAnimations";
+import { TiltCard, MagneticWrapper } from "./animations/Interactions3D";
+
+// Register GSAP plugins
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 const projections = [
-    { year: "Year 1", value: "₹2.5 Cr", milestone: "Pilot phase complete" },
-    { year: "Year 2", value: "₹12 Cr", milestone: "Enterprise expansion" },
-    { year: "Year 3", value: "₹35 Cr", milestone: "Market leadership" },
+    { year: "Year 1", value: 2.5, suffix: " Cr", milestone: "Pilot phase complete" },
+    { year: "Year 2", value: 12, suffix: " Cr", milestone: "Enterprise expansion" },
+    { year: "Year 3", value: 35, suffix: " Cr", milestone: "Market leadership" },
 ];
 
 const pricingTiers = [
@@ -47,12 +54,124 @@ const pricingTiers = [
     },
 ];
 
+// Counter animation component
+function AnimatedCounter({
+    value,
+    prefix = "₹",
+    suffix = ""
+}: {
+    value: number;
+    prefix?: string;
+    suffix?: string;
+}) {
+    const counterRef = useRef<HTMLSpanElement>(null);
+
+    useEffect(() => {
+        if (!counterRef.current) return;
+
+        const element = counterRef.current;
+        const obj = { value: 0 };
+
+        gsap.to(obj, {
+            value,
+            duration: 2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: element,
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+            },
+            onUpdate: () => {
+                element.textContent = `${prefix}${obj.value.toFixed(1)}${suffix}`;
+            },
+        });
+
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => {
+                if (trigger.trigger === element) {
+                    trigger.kill();
+                }
+            });
+        };
+    }, [value, prefix, suffix]);
+
+    return <span ref={counterRef}>{prefix}0{suffix}</span>;
+}
+
 export default function BusinessModelSection() {
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const headerRef = useRef<HTMLDivElement>(null);
+    const cardsRef = useRef<HTMLDivElement>(null);
+    const projectionsRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        // Animate header
+        if (headerRef.current) {
+            gsap.fromTo(
+                headerRef.current.children,
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: headerRef.current,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse",
+                    },
+                }
+            );
+        }
+
+        // Animate pricing cards
+        if (cardsRef.current) {
+            gsap.fromTo(
+                cardsRef.current.children,
+                { opacity: 0, y: 60, rotateY: -15 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    rotateY: 0,
+                    duration: 1,
+                    stagger: 0.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: cardsRef.current,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse",
+                    },
+                }
+            );
+        }
+
+        // Animate projections container
+        if (projectionsRef.current) {
+            gsap.fromTo(
+                projectionsRef.current,
+                { opacity: 0, scale: 0.95, y: 40 },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: projectionsRef.current,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse",
+                    },
+                }
+            );
+        }
+    }, []);
+
     return (
-        <Section id="pricing" spacing="xl" className="bg-slate-900">
+        <Section id="pricing" spacing="xl" className="bg-slate-900 overflow-hidden">
             <Container>
                 {/* Section Header */}
-                <div className="text-center mb-16">
+                <div ref={headerRef} className="text-center mb-16">
                     <Badge variant="primary" size="md" className="mb-4 bg-teal-500/10 text-teal-400 border-teal-500/20">
                         Business Model
                     </Badge>
@@ -64,17 +183,17 @@ export default function BusinessModelSection() {
                     </p>
                 </div>
 
-                {/* Pricing Cards */}
-                <StaggerContainer staggerDelay={0.15} className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-20">
+                {/* Pricing Cards with 3D Tilt */}
+                <div
+                    ref={cardsRef}
+                    className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-20"
+                    style={{ perspective: "1500px" }}
+                >
                     {pricingTiers.map((tier, index) => (
-                        <StaggerItem key={index}>
-                            <Card 
-                                variant="elevated" 
-                                hover
-                                className="bg-slate-800 border-slate-700 h-full"
-                            >
+                        <TiltCard key={index} tiltStrength={8} glareEnabled={true}>
+                            <div className="h-full p-8 bg-slate-800 rounded-2xl border border-slate-700 hover:border-slate-600 transition-colors">
                                 <div className="flex items-center gap-3 mb-6">
-                                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${tier.gradient} flex items-center justify-center text-white shadow-[var(--shadow-md)]`}>
+                                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${tier.gradient} flex items-center justify-center text-white shadow-lg`}>
                                         {tier.icon}
                                     </div>
                                     <div>
@@ -104,44 +223,22 @@ export default function BusinessModelSection() {
                                         </li>
                                     ))}
                                 </ul>
-                            </Card>
-                        </StaggerItem>
+                            </div>
+                        </TiltCard>
                     ))}
-                </StaggerContainer>
+                </div>
 
-                {/* Growth Projections */}
-                <ScrollReveal direction="up">
-                    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-8 md:p-12">
-                        <div className="text-center mb-12">
-                            <h3 className="text-white text-2xl md:text-3xl font-bold mb-4">
-                                Growth Projections
-                            </h3>
-                            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                                Building towards market leadership in frontline worker training
-                            </p>
-                        </div>
-
-                        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
-                            {projections.map((proj, index) => (
-                                <div key={index} className="text-center">
-                                    <div className="text-sm text-slate-400 mb-2">{proj.year}</div>
-                                    <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">{proj.value}</div>
-                                    <div className="text-sm text-slate-500">{proj.milestone}</div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </ScrollReveal>
-
-                {/* CTA */}
+                {/* CTA with Magnetic Effect */}
                 <div className="text-center mt-12">
-                    <Button 
-                        variant="primary" 
-                        size="lg"
-                        onClick={() => window.location.href = '#contact'}
-                    >
-                        Book Your 7-Day Pilot
-                    </Button>
+                    <MagneticWrapper strength={0.3}>
+                        <Button
+                            variant="primary"
+                            size="lg"
+                            onClick={() => window.location.href = '#contact'}
+                        >
+                            Book Your 7-Day Pilot
+                        </Button>
+                    </MagneticWrapper>
                 </div>
             </Container>
         </Section>

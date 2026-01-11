@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Target, CircleDollarSign, Handshake, Check, Mail, ArrowRight, Loader2 } from "lucide-react";
+import { Target, Handshake, Check, Mail, ArrowRight, Loader2 } from "lucide-react";
 import Card from "./ui/Card";
 import Badge from "./ui/Badge";
 import Button from "./ui/Button";
@@ -14,11 +14,6 @@ const trustPoints = [
         icon: <Target className="w-6 h-6" />,
         title: "7-Day Free Pilot",
         description: "Free validation with your real workers and content",
-    },
-    {
-        icon: <CircleDollarSign className="w-6 h-6" />,
-        title: "₹75L Seed Round",
-        description: "Raising funds to scale operations nationally",
     },
     {
         icon: <Handshake className="w-6 h-6" />,
