@@ -6,22 +6,22 @@ export default function Footer() {
 
     const navigation = {
         product: [
-            { name: "Problem", href: "#problem" },
-            { name: "Solution", href: "#solution" },
-            { name: "Market", href: "#market" },
-            { name: "Pricing", href: "#pricing" },
+            { name: "Problem", href: "/#problem" },
+            { name: "Solution", href: "/#solution" },
+            { name: "Market", href: "/#market" },
+            { name: "Pricing", href: "/#pricing" },
         ],
         company: [
-            { name: "About", href: "#" },
-            { name: "Blog", href: "#" },
-            { name: "Careers", href: "#" },
-            { name: "Contact", href: "#contact" },
+            { name: "About", href: "/about" },
+            { name: "Blog", href: "/blog" },
+
+            { name: "Contact", href: "/#contact" },
         ],
         legal: [
-            { name: "Privacy Policy", href: "#" },
-            { name: "Terms of Service", href: "#" },
-            { name: "Cookie Policy", href: "#" },
-            { name: "GDPR", href: "#" },
+            { name: "Privacy Policy", href: "/legal/privacy" },
+            { name: "Terms of Service", href: "/legal/terms" },
+            { name: "Cookie Policy", href: "/legal/cookies" },
+            { name: "GDPR", href: "/legal/gdpr" },
         ],
     };
 
