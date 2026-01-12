@@ -1,3 +1,5 @@
+"use client";
+
 import { Mail, Linkedin, Twitter, Github } from "lucide-react";
 import Container from "./ui/Container";
 

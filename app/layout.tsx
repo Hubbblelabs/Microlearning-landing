@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Source_Serif_4 } from "next/font/google";
+import { GoogleAnalytics } from "@/lib/analytics";
+import { createMetadata } from "@/lib/metadata";
+import { 
+  getOrganizationSchema, 
+  getWebsiteSchema, 
+  StructuredData 
+} from "@/lib/structured-data";
 import "./globals.css";
 
 const inter = Inter({
@@ -20,51 +27,24 @@ const sourceSerif = Source_Serif_4({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Microlearning | AI-Powered Training for Frontline Workers",
-  description:
-    "Train 250M+ frontline workers in India with 2-3 minute AI-powered microlearning modules delivered via WhatsApp & SMS in 12+ Indian languages. Visit micro-learning.app to learn more.",
-  keywords: [
-    "microlearning",
-    "frontline workers",
-    "WhatsApp training",
-    "SMS learning",
-    "AI training",
-    "India workforce",
-    "factory training",
-    "warehouse training",
-    "employee training",
-    "skill development",
-  ],
-  authors: [{ name: "Microlearning" }],
-  openGraph: {
-    title: "Microlearning | AI-Powered Training for Frontline Workers",
-    description:
-      "Train 250M+ frontline workers with 2-3 minute modules via WhatsApp & SMS in 12+ languages.",
-    type: "website",
-    locale: "en_IN",
-    siteName: "Microlearning",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Microlearning | AI-Powered Training for Frontline Workers",
-    description:
-      "Train 250M+ frontline workers with 2-3 minute modules via WhatsApp & SMS in 12+ languages.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export const metadata: Metadata = createMetadata();
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = getOrganizationSchema();
+  const websiteSchema = getWebsiteSchema();
+
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${sourceSerif.variable}`}>
+      <head>
+        <StructuredData data={organizationSchema} />
+        <StructuredData data={websiteSchema} />
+      </head>
       <body className="antialiased">
+        <GoogleAnalytics />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
