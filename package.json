@@ -1,6 +1,6 @@
 {
   "name": "mc",
-  "version": "1.8.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -15,11 +15,13 @@
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "framer-motion": "^12.25.0",
+    "googleapis": "^170.1.0",
     "gsap": "^3.14.2",
     "lucide-react": "^0.562.0",
     "next": "16.1.1",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "resend": "^6.9.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

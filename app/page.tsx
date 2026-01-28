@@ -5,6 +5,7 @@ import SolutionSection from "./components/SolutionSection";
 import TargetMarketSection from "./components/TargetMarketSection";
 import BusinessModelSection from "./components/BusinessModelSection";
 import TrustSection from "./components/TrustSection";
+import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <TargetMarketSection />
         <BusinessModelSection />
         <TrustSection />
+        <ContactSection />
       </main>
       <Footer />
     </>
