@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Target, Handshake, Check, Mail, ArrowRight, Loader2 } from "lucide-react";
+import { Target, Handshake, Check, Mail, ArrowRight, Loader2, AlertCircle } from "lucide-react";
 import Card from "./ui/Card";
 import Badge from "./ui/Badge";
 import Button from "./ui/Button";
@@ -51,6 +51,7 @@ export default function TrustSection() {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -62,25 +63,59 @@ export default function TrustSection() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setErrorMessage("");
 
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        // Create detailed message from form data
+        const message = `Company: ${formData.company || 'Not provided'}
+Worker Count: ${formData.workerCount || 'Not provided'}
+Phone: ${formData.phone || 'Not provided'}
+Industry: ${formData.industry || 'Not provided'}
 
-        setIsSubmitting(false);
-        setIsSubmitted(true);
+Request for pilot proposal.`;
 
-        // Reset form after showing success
-        setTimeout(() => {
-            setFormData({
-                name: "",
-                email: "",
-                company: "",
-                workerCount: "",
-                phone: "",
-                industry: "",
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    message: message,
+                }),
             });
-            setIsSubmitted(false);
-        }, 3000);
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || "Failed to submit form");
+            }
+
+            setIsSubmitting(false);
+            setIsSubmitted(true);
+
+            // Reset form after showing success
+            setTimeout(() => {
+                setFormData({
+                    name: "",
+                    email: "",
+                    company: "",
+                    workerCount: "",
+                    phone: "",
+                    industry: "",
+                });
+                setIsSubmitted(false);
+            }, 5000);
+        } catch (error) {
+            setIsSubmitting(false);
+            setErrorMessage(error instanceof Error ? error.message : "Something went wrong. Please try again.");
+            
+            // Clear error after 5 seconds
+            setTimeout(() => {
+                setErrorMessage("");
+            }, 5000);
+        }
     };
 
     return (
@@ -264,6 +299,14 @@ export default function TrustSection() {
                                         </select>
                                     </div>
 
+                                    {/* Error Message */}
+                                    {errorMessage && (
+                                        <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-lg">
+                                            <AlertCircle className="w-5 h-5 text-red-500 shrink-0" />
+                                            <p className="text-red-700 text-sm">{errorMessage}</p>
+                                        </div>
+                                    )}
+
                                     <Button
                                         type="submit"
                                         disabled={isSubmitting}
@@ -286,11 +329,11 @@ export default function TrustSection() {
 
                                     <p className="text-slate-500 text-xs text-center mt-4">
                                         By submitting, you agree to our{" "}
-                                        <a href="#" className="text-teal-600 hover:underline">
+                                        <a href="/legal/privacy" className="text-teal-600 hover:underline">
                                             Privacy Policy
                                         </a>{" "}
                                         and{" "}
-                                        <a href="#" className="text-teal-600 hover:underline">
+                                        <a href="/legal/terms" className="text-teal-600 hover:underline">
                                             Terms of Service
                                         </a>
                                     </p>
