@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 import { Shield, FileText, UserCheck, Globe, Lock, AlertTriangle } from "lucide-react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import Container from "../../components/ui/Container";
-import Section from "../../components/ui/Section";
-import Badge from "../../components/ui/Badge";
-import Card from "../../components/ui/Card";
-import { StaggerContainer, StaggerItem } from "../../components/animations/ScrollAnimations";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+import Badge from "@/components/ui/Badge";
+import Card from "@/components/ui/Card";
+import { StaggerContainer, StaggerItem } from "@/components/animations/ScrollAnimations";
 
 const gdprRights = [
     { icon: <FileText className="w-6 h-6" />, title: "Right to Access", description: "Request a copy of your personal data" },

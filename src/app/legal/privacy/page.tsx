@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import Container from "../../components/ui/Container";
-import Section from "../../components/ui/Section";
-import Badge from "../../components/ui/Badge";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+import Badge from "@/components/ui/Badge";
 
 export default function PrivacyPolicyPage() {
     return (

@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { blogPosts } from './data/blogPosts';
+import { blogPosts } from '@/data/blogPosts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://micro-learning.app';

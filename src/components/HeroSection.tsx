@@ -8,7 +8,7 @@ import Container from "./ui/Container";
 import Section from "./ui/Section";
 import { MagneticWrapper } from "./animations/Interactions3D";
 import PhoneMockup from "./PhoneMockup";
-import { platforms } from "../constants/platforms";
+import { platforms } from "@/constants/platforms";
 
 
 export default function HeroSection() {

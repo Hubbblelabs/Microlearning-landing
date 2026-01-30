@@ -4,13 +4,13 @@ import { use, useState } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, Facebook, Linkedin, Share2, Twitter } from "lucide-react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import Container from "../../components/ui/Container";
-import Section from "../../components/ui/Section";
-import Badge from "../../components/ui/Badge";
-import Button from "../../components/ui/Button";
-import { allPosts } from "../../data/blogPosts";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+import Badge from "@/components/ui/Badge";
+import Button from "@/components/ui/Button";
+import { allPosts } from "@/data/blogPosts";
 
 export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = use(params);

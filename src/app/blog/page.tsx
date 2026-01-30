@@ -4,15 +4,15 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight, Search, Tag } from "lucide-react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Container from "../components/ui/Container";
-import Section from "../components/ui/Section";
-import Badge from "../components/ui/Badge";
-import Card from "../components/ui/Card";
-import Button from "../components/ui/Button";
-import { ScrollReveal, StaggerContainer, StaggerItem } from "../components/animations/ScrollAnimations";
-import { featuredPost, blogPosts } from "../data/blogPosts";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+import Badge from "@/components/ui/Badge";
+import Card from "@/components/ui/Card";
+import Button from "@/components/ui/Button";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollAnimations";
+import { featuredPost, blogPosts } from "@/data/blogPosts";
 
 const categories = [
     "All Posts",

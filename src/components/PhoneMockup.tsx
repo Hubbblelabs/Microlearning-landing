@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send } from "lucide-react";
-import { platforms, messageTemplates } from "../constants/platforms";
+import { platforms, messageTemplates } from "@/constants/platforms";
 
 // Typing indicator component
 function TypingIndicator({ platform }: { platform: typeof platforms[0] }) {

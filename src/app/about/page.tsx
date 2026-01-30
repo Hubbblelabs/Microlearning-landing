@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 import { Users, Target, Lightbulb, Heart, Award, Zap } from "lucide-react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Container from "../components/ui/Container";
-import Section from "../components/ui/Section";
-import Badge from "../components/ui/Badge";
-import Card from "../components/ui/Card";
-import { ScrollReveal, StaggerContainer, StaggerItem } from "../components/animations/ScrollAnimations";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+import Badge from "@/components/ui/Badge";
+import Card from "@/components/ui/Card";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollAnimations";
 
 const values = [
     {

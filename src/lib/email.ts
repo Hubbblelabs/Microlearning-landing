@@ -1,6 +1,7 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize with a dummy key if not present to prevent build failures
+const resend = new Resend(process.env.RESEND_API_KEY || 're_123');
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://micro-learning.app';
 const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME || 'Microlearning';

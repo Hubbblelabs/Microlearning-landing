@@ -2,14 +2,14 @@
 
 import { motion } from "framer-motion";
 import { Briefcase, MapPin, Clock, Heart, Zap, Users, Coffee, Laptop, Globe, ArrowRight } from "lucide-react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Container from "../components/ui/Container";
-import Section from "../components/ui/Section";
-import Badge from "../components/ui/Badge";
-import Card from "../components/ui/Card";
-import Button from "../components/ui/Button";
-import { ScrollReveal, StaggerContainer, StaggerItem } from "../components/animations/ScrollAnimations";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+import Badge from "@/components/ui/Badge";
+import Card from "@/components/ui/Card";
+import Button from "@/components/ui/Button";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollAnimations";
 
 const perks = [
     { icon: <Heart className="w-6 h-6" />, title: "Health Benefits", description: "Comprehensive medical coverage for you and family" },
