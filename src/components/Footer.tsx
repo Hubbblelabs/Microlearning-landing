@@ -51,7 +51,7 @@ export default function Footer() {
                         </p>
                         <a
                             href="mailto:hello@micro-learning.app"
-                            className="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring-color)]"
+                            className="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 transition-colors text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring-color)]"
                         >
                             <Mail className="w-4 h-4" />
                             hello@micro-learning.app

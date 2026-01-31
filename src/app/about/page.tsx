@@ -58,7 +58,7 @@ export default function AboutPage() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <Badge variant="primary" size="md" className="mb-6 bg-teal-500/10 border-teal-500/20 text-teal-300">
+                            <Badge variant="primary" size="md" className="mb-6 bg-orange-500/10 border-orange-500/20 text-orange-300">
                                 About Us
                             </Badge>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
@@ -97,8 +97,8 @@ export default function AboutPage() {
 
                             <ScrollReveal direction="left">
                                 <div className="grid grid-cols-2 gap-4">
-                                    <div className="p-6 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl">
-                                        <div className="text-4xl font-bold text-teal-600 mb-2">250M+</div>
+                                    <div className="p-6 bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl">
+                                        <div className="text-4xl font-bold text-orange-600 mb-2">250M+</div>
                                         <div className="text-slate-600 text-sm">Frontline Workers</div>
                                     </div>
                                     <div className="p-6 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl">
@@ -109,7 +109,7 @@ export default function AboutPage() {
                                         <div className="text-4xl font-bold text-amber-600 mb-2">12+</div>
                                         <div className="text-slate-600 text-sm">Indian Languages</div>
                                     </div>
-                                    <div className="p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl">
+                                    <div className="p-6 bg-gradient-to-br from-blue-50 to-sky-50 rounded-2xl">
                                         <div className="text-4xl font-bold text-blue-600 mb-2">95%</div>
                                         <div className="text-slate-600 text-sm">WhatsApp Penetration</div>
                                     </div>
@@ -133,7 +133,7 @@ export default function AboutPage() {
                             {values.map((value, index) => (
                                 <StaggerItem key={index}>
                                     <Card hover className="h-full text-center">
-                                        <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center text-white">
+                                        <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center text-white">
                                             {value.icon}
                                         </div>
                                         <h4 className="text-lg font-semibold text-slate-900 mb-2">{value.title}</h4>
@@ -149,7 +149,7 @@ export default function AboutPage() {
                 <Section spacing="xl" className="bg-slate-900">
                     <Container>
                         <div className="text-center mb-16">
-                            <Badge variant="primary" size="md" className="mb-4 bg-teal-500/10 border-teal-500/20 text-teal-300">
+                            <Badge variant="primary" size="md" className="mb-4 bg-orange-500/10 border-orange-500/20 text-orange-300">
                                 Our Journey
                             </Badge>
                             <h2 className="text-white mb-6">
@@ -159,19 +159,19 @@ export default function AboutPage() {
 
                         <div className="relative max-w-4xl mx-auto">
                             {/* Timeline line */}
-                            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-teal-500 to-emerald-500 rounded-full hidden md:block" />
+                            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-orange-500 to-amber-500 rounded-full hidden md:block" />
 
                             {milestones.map((milestone, index) => (
                                 <ScrollReveal key={index} direction={index % 2 === 0 ? "right" : "left"}>
                                     <div className={`flex flex-col md:flex-row items-center gap-8 mb-12 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                                         <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
                                             <div className="bg-slate-800 p-6 rounded-2xl border border-slate-700">
-                                                <div className="text-teal-400 font-bold text-lg mb-2">{milestone.year}</div>
+                                                <div className="text-orange-400 font-bold text-lg mb-2">{milestone.year}</div>
                                                 <h4 className="text-white font-semibold text-xl mb-2">{milestone.title}</h4>
                                                 <p className="text-slate-400">{milestone.description}</p>
                                             </div>
                                         </div>
-                                        <div className="w-6 h-6 bg-teal-500 rounded-full border-4 border-slate-900 z-10 hidden md:block" />
+                                        <div className="w-6 h-6 bg-orange-500 rounded-full border-4 border-slate-900 z-10 hidden md:block" />
                                         <div className="flex-1 hidden md:block" />
                                     </div>
                                 </ScrollReveal>
@@ -195,8 +195,8 @@ export default function AboutPage() {
                                 committed to transforming frontline worker training in India.
                             </p>
 
-                            <div className="inline-flex items-center gap-3 p-6 bg-gradient-to-r from-teal-50 to-emerald-50 rounded-2xl border border-teal-100">
-                                <Users className="w-6 h-6 text-teal-600" />
+                            <div className="inline-flex items-center gap-3 p-6 bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl border border-orange-100">
+                                <Users className="w-6 h-6 text-orange-600" />
                                 <span className="text-slate-700">Team profiles coming soon</span>
                             </div>
                         </div>

@@ -67,7 +67,7 @@ export default function CareersPage() {
                 <Section spacing="xl" className="relative bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 pt-32">
                     <div className="absolute inset-0 opacity-20">
                         <div className="absolute inset-0" style={{
-                            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(20, 184, 166, 0.08) 0%, transparent 50%)`
+                            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(249, 115, 22, 0.08) 0%, transparent 50%)`
                         }} />
                     </div>
                     <Container className="relative z-10 text-center">
@@ -76,7 +76,7 @@ export default function CareersPage() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <Badge variant="primary" size="md" className="mb-6 bg-teal-500/10 border-teal-500/20 text-teal-300">
+                            <Badge variant="primary" size="md" className="mb-6 bg-orange-500/10 border-orange-500/20 text-orange-300">
                                 We're Hiring
                             </Badge>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
@@ -138,7 +138,7 @@ export default function CareersPage() {
                                 <StaggerItem key={index}>
                                     <Card hover className="h-full">
                                         <div className="flex items-start gap-4">
-                                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center text-white shrink-0">
+                                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center text-white shrink-0">
                                                 {perk.icon}
                                             </div>
                                             <div>
@@ -157,7 +157,7 @@ export default function CareersPage() {
                 <Section id="positions" spacing="xl" className="bg-slate-900">
                     <Container>
                         <div className="text-center mb-16">
-                            <Badge variant="primary" size="md" className="mb-4 bg-teal-500/10 border-teal-500/20 text-teal-300">
+                            <Badge variant="primary" size="md" className="mb-4 bg-orange-500/10 border-orange-500/20 text-orange-300">
                                 Open Roles
                             </Badge>
                             <h2 className="text-white mb-6">
@@ -168,14 +168,14 @@ export default function CareersPage() {
                         <div className="space-y-4 max-w-4xl mx-auto">
                             {openPositions.map((position, index) => (
                                 <ScrollReveal key={index} direction="up" delay={index * 0.1}>
-                                    <div className="group bg-slate-800 border border-slate-700 rounded-2xl p-6 hover:border-teal-500/50 transition-all cursor-pointer">
+                                    <div className="group bg-slate-800 border border-slate-700 rounded-2xl p-6 hover:border-orange-500/50 transition-all cursor-pointer">
                                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                                             <div className="flex-1">
                                                 <div className="flex items-center gap-3 mb-2">
-                                                    <h3 className="text-xl font-semibold text-white group-hover:text-teal-400 transition-colors">
+                                                    <h3 className="text-xl font-semibold text-white group-hover:text-orange-400 transition-colors">
                                                         {position.title}
                                                     </h3>
-                                                    <Badge variant="primary" size="sm" className="bg-teal-500/20 text-teal-300 border-teal-500/30">
+                                                    <Badge variant="primary" size="sm" className="bg-orange-500/20 text-orange-300 border-orange-500/30">
                                                         {position.department}
                                                     </Badge>
                                                 </div>
@@ -191,7 +191,7 @@ export default function CareersPage() {
                                                     </span>
                                                 </div>
                                             </div>
-                                            <Button variant="outline" size="sm" className="shrink-0 border-slate-600 text-white hover:border-teal-500 hover:bg-teal-500/10">
+                                            <Button variant="outline" size="sm" className="shrink-0 border-slate-600 text-white hover:border-orange-500 hover:bg-orange-500/10">
                                                 Apply Now
                                                 <ArrowRight className="w-4 h-4" />
                                             </Button>
@@ -204,7 +204,7 @@ export default function CareersPage() {
                 </Section>
 
                 {/* CTA */}
-                <Section spacing="lg" className="bg-gradient-to-r from-teal-600 to-emerald-600">
+                <Section spacing="lg" className="bg-gradient-to-r from-orange-600 to-amber-600">
                     <Container>
                         <div className="text-center">
                             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -213,7 +213,7 @@ export default function CareersPage() {
                             <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
                                 We're always looking for talented people. Send us your resume and let us know how you'd like to contribute.
                             </p>
-                            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-teal-600">
+                            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-orange-600">
                                 Send Your Resume
                             </Button>
                         </div>

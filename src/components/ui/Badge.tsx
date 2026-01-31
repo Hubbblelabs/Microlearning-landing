@@ -11,7 +11,7 @@ const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
     const baseStyles = 'inline-flex items-center gap-1.5 font-medium rounded-full';
     
     const variants = {
-      primary: 'bg-[var(--primary-50)] text-[var(--primary-700)] border border-[var(--primary-200)]',
+      primary: 'bg-orange-50 text-orange-700 border border-orange-200',
       success: 'bg-emerald-50 text-emerald-700 border border-emerald-200',
       warning: 'bg-amber-50 text-amber-700 border border-amber-200',
       error: 'bg-red-50 text-red-700 border border-red-200',

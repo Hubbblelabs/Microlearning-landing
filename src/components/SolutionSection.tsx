@@ -21,7 +21,7 @@ const features = [
         title: "WhatsApp & SMS Delivery",
         description: "Meet workers where they are. No app downloads, no complex logins.",
         detail: "Instant delivery to 95% of workers who already use WhatsApp daily.",
-        color: "from-green-500 to-emerald-600",
+        color: "from-green-500 to-green-600",
     },
     {
         icon: <Video className="w-6 h-6" />,
@@ -56,7 +56,7 @@ const features = [
         title: "12+ Indian Languages",
         description: "Regional language support for maximum reach.",
         detail: "Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, and more.",
-        color: "from-teal-500 to-emerald-600",
+        color: "from-orange-500 to-amber-600",
     },
 ];
 
@@ -126,7 +126,7 @@ function FeatureCard({
                         className={`overflow-hidden transition-all duration-300 ${isHovered ? "max-h-20 opacity-100" : "max-h-0 opacity-0"
                             }`}
                     >
-                        <p className="text-teal-600 text-sm font-medium pt-3 border-t border-slate-100">
+                        <p className="text-orange-600 text-sm font-medium pt-3 border-t border-slate-100">
                             {feature.detail}
                         </p>
                     </div>
@@ -204,7 +204,7 @@ export default function SolutionSection() {
 
                 {/* Demo CTA with Magnetic Effect */}
                 <div className="flex justify-center">
-                    <div className="inline-flex flex-col sm:flex-row items-center gap-6 p-8 bg-gradient-to-r from-teal-50 to-emerald-50 rounded-2xl border border-teal-100 max-w-3xl">
+                    <div className="inline-flex flex-col sm:flex-row items-center gap-6 p-8 bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl border border-orange-100 max-w-3xl">
                         <div className="flex-1 text-center sm:text-left">
                             <p className="text-slate-900 font-bold text-xl mb-2">
                                 See it in action

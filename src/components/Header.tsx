@@ -18,8 +18,8 @@ const navLinks = [
 function GradientBorder({ children, className = "" }: { children: React.ReactNode; className?: string }) {
     return (
         <div className={`relative ${className}`}>
-            <div className="absolute -inset-[1px] bg-gradient-to-r from-teal-500 via-emerald-500 to-cyan-500 rounded-full opacity-60 blur-sm animate-gradient-shift" />
-            <div className="absolute -inset-[1px] bg-gradient-to-r from-teal-500 via-emerald-500 to-cyan-500 rounded-full opacity-80 animate-gradient-shift" />
+            <div className="absolute -inset-[1px] bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 rounded-full opacity-60 blur-sm animate-gradient-shift" />
+            <div className="absolute -inset-[1px] bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 rounded-full opacity-80 animate-gradient-shift" />
             <div className="relative bg-slate-950/90 backdrop-blur-2xl rounded-full">
                 {children}
             </div>
@@ -144,19 +144,19 @@ export default function Header() {
                             >
                                 {/* Animated ring */}
                                 <motion.div
-                                    className="absolute -inset-1 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-500 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-500"
+                                    className="absolute -inset-1 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-500"
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                                 />
-                                <div className="relative w-10 h-10 md:w-11 md:h-11 rounded-xl bg-gradient-to-br from-teal-400 via-emerald-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-teal-500/30">
+                                <div className="relative w-10 h-10 md:w-11 md:h-11 rounded-xl bg-gradient-to-br from-orange-400 via-amber-500 to-yellow-500 flex items-center justify-center shadow-lg shadow-orange-500/30">
                                     <span className="text-white font-bold text-lg">M</span>
                                 </div>
                             </motion.div>
                             <div className="flex flex-col">
-                                <span className="font-bold text-lg md:text-xl tracking-tight text-white leading-none">
+                                <span className={`font-bold text-lg md:text-xl tracking-tight leading-none transition-colors ${isScrolled ? 'text-slate-900' : 'text-white'}`}>
                                     Microlearning
                                 </span>
-                                <span className="text-[10px] text-teal-400 font-medium tracking-widest uppercase">
+                                <span className={`text-[10px] font-medium tracking-widest uppercase transition-colors ${isScrolled ? 'text-orange-600' : 'text-orange-400'}`}>
                                     Train Smarter
                                 </span>
                             </div>
@@ -196,8 +196,8 @@ export default function Header() {
                                 className="group relative inline-flex items-center gap-2 px-6 py-3 overflow-hidden rounded-full font-semibold text-sm"
                             >
                                 {/* Animated gradient background */}
-                                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 via-emerald-500 to-cyan-500 animate-gradient-shift" />
-                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-cyan-500 via-teal-500 to-emerald-500" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 animate-gradient-shift" />
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-yellow-500 via-orange-500 to-amber-500" />
                                 
                                 {/* Shine effect */}
                                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100">
@@ -241,8 +241,8 @@ export default function Header() {
                     >
                         {/* Background decoration */}
                         <div className="absolute inset-0 overflow-hidden">
-                            <div className="absolute top-1/4 -right-1/4 w-[60%] h-[60%] bg-teal-500/20 rounded-full blur-[100px]" />
-                            <div className="absolute bottom-1/4 -left-1/4 w-[60%] h-[60%] bg-emerald-500/20 rounded-full blur-[100px]" />
+                            <div className="absolute top-1/4 -right-1/4 w-[60%] h-[60%] bg-orange-500/20 rounded-full blur-[100px]" />
+                            <div className="absolute bottom-1/4 -left-1/4 w-[60%] h-[60%] bg-amber-500/20 rounded-full blur-[100px]" />
                         </div>
 
                         <button
@@ -268,7 +268,7 @@ export default function Header() {
                                     >
                                         <span className="relative z-10">{link.label}</span>
                                         <motion.span
-                                            className="absolute -left-4 top-1/2 -translate-y-1/2 w-2 h-2 bg-teal-500 rounded-full opacity-0 group-hover:opacity-100"
+                                            className="absolute -left-4 top-1/2 -translate-y-1/2 w-2 h-2 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100"
                                             layoutId="mobile-indicator"
                                         />
                                     </Link>

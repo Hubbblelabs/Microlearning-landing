@@ -142,7 +142,7 @@ Request for pilot proposal.`;
                                     <ScrollReveal key={index} direction="right" delay={0.1 * index}>
                                         <Card hover={false} className="group">
                                             <div className="flex items-center gap-4">
-                                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-50 to-emerald-50 flex items-center justify-center text-teal-600 shrink-0 group-hover:scale-110 transition-transform duration-[var(--transition-base)]">
+                                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-50 to-amber-50 flex items-center justify-center text-orange-600 shrink-0 group-hover:scale-110 transition-transform duration-[var(--transition-base)]">
                                                     {point.icon}
                                                 </div>
                                                 <div>
@@ -162,7 +162,7 @@ Request for pilot proposal.`;
                                 </p>
                                 <a
                                     href="mailto:hello@micro-learning.app"
-                                    className="inline-flex items-center gap-2 text-white font-semibold text-lg hover:text-teal-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring-color)]"
+                                    className="inline-flex items-center gap-2 text-white font-semibold text-lg hover:text-orange-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring-color)]"
                                 >
                                     <Mail className="w-5 h-5" />
                                     hello@micro-learning.app
@@ -183,8 +183,8 @@ Request for pilot proposal.`;
 
                             {isSubmitted ? (
                                 <div className="text-center py-12">
-                                    <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-teal-100 flex items-center justify-center">
-                                        <Check className="w-10 h-10 text-teal-600" />
+                                    <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-orange-100 flex items-center justify-center">
+                                        <Check className="w-10 h-10 text-orange-600" />
                                     </div>
                                     <h4 className="text-2xl font-bold text-slate-900 mb-2">
                                         Thank you!
@@ -329,11 +329,11 @@ Request for pilot proposal.`;
 
                                     <p className="text-slate-500 text-xs text-center mt-4">
                                         By submitting, you agree to our{" "}
-                                        <a href="/legal/privacy" className="text-teal-600 hover:underline">
+                                        <a href="/legal/privacy" className="text-orange-600 hover:underline">
                                             Privacy Policy
                                         </a>{" "}
                                         and{" "}
-                                        <a href="/legal/terms" className="text-teal-600 hover:underline">
+                                        <a href="/legal/terms" className="text-orange-600 hover:underline">
                                             Terms of Service
                                         </a>
                                     </p>

@@ -39,7 +39,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                                 Back to Blog
                             </Link>
 
-                            <Badge variant="primary" size="md" className="mb-6 bg-teal-500/10 border-teal-500/20 text-teal-300">
+                            <Badge variant="primary" size="md" className="mb-6 bg-orange-500/10 border-orange-500/20 text-orange-300">
                                 {post.category}
                             </Badge>
 

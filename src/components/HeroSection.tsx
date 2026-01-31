@@ -17,7 +17,7 @@ function FloatingParticles() {
             {[...Array(20)].map((_, i) => (
                 <motion.div
                     key={i}
-                    className="absolute w-1 h-1 bg-teal-500/30 rounded-full"
+                    className="absolute w-1 h-1 bg-orange-500/30 rounded-full"
                     style={{
                         left: `${Math.random() * 100}%`,
                         top: `${Math.random() * 100}%`,
@@ -70,7 +70,7 @@ function AnimatedHeadline() {
                 className="block mt-2"
             >
                 <span className="relative inline-block">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-400 animate-gradient-shift">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 animate-gradient-shift">
                         2 minutes a day
                     </span>
                     {/* Underline decoration */}
@@ -93,9 +93,9 @@ function AnimatedHeadline() {
                         />
                         <defs>
                             <linearGradient id="underline-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stopColor="#2dd4bf" />
-                                <stop offset="50%" stopColor="#34d399" />
-                                <stop offset="100%" stopColor="#22d3ee" />
+                                <stop offset="0%" stopColor="#fb923c" />
+                                <stop offset="50%" stopColor="#f97316" />
+                                <stop offset="100%" stopColor="#ea580c" />
                             </linearGradient>
                         </defs>
                     </motion.svg>
@@ -160,8 +160,8 @@ function StatCard({ value, label, delay }: { value: string; label: string; delay
             style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
             className="relative group cursor-default"
         >
-            <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-emerald-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative p-6 bg-slate-900/50 backdrop-blur-md rounded-2xl border border-white/10 group-hover:border-teal-500/30 transition-colors">
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="relative p-6 bg-slate-900/50 backdrop-blur-md rounded-2xl border border-white/10 group-hover:border-orange-500/30 transition-colors">
                 <div className="text-3xl md:text-4xl font-bold text-white mb-1">{value}</div>
                 <div className="text-slate-400 text-sm font-medium">{label}</div>
             </div>
@@ -194,7 +194,7 @@ export default function HeroSection() {
             <div className="absolute inset-0 overflow-hidden">
                 {/* Gradient mesh background */}
                 <div className="absolute inset-0">
-                    <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(20,184,166,0.15),transparent)]" />
+                    <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(249,115,22,0.15),transparent)]" />
                     <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_80%_80%,rgba(59,130,246,0.1),transparent)]" />
                 </div>
 
@@ -202,7 +202,7 @@ export default function HeroSection() {
                 <motion.div
                     className="absolute -top-[40%] -left-[20%] w-[80%] h-[80%] rounded-full"
                     style={{
-                        background: "conic-gradient(from 0deg, transparent, rgba(20,184,166,0.3), transparent, rgba(52,211,153,0.2), transparent)",
+                        background: "conic-gradient(from 0deg, transparent, rgba(249,115,22,0.3), transparent, rgba(251,146,60,0.2), transparent)",
                         filter: "blur(80px)",
                     }}
                     animate={{ rotate: 360 }}
@@ -211,7 +211,7 @@ export default function HeroSection() {
                 <motion.div
                     className="absolute -bottom-[30%] -right-[20%] w-[70%] h-[70%] rounded-full"
                     style={{
-                        background: "conic-gradient(from 180deg, transparent, rgba(34,211,238,0.2), transparent, rgba(59,130,246,0.15), transparent)",
+                        background: "conic-gradient(from 180deg, transparent, rgba(234,88,12,0.2), transparent, rgba(59,130,246,0.15), transparent)",
                         filter: "blur(80px)",
                     }}
                     animate={{ rotate: -360 }}
@@ -246,7 +246,7 @@ export default function HeroSection() {
                     <defs>
                         <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                             <stop offset="0%" stopColor="transparent" />
-                            <stop offset="50%" stopColor="#14b8a6" />
+                            <stop offset="50%" stopColor="#f97316" />
                             <stop offset="100%" stopColor="transparent" />
                         </linearGradient>
                     </defs>
@@ -262,11 +262,11 @@ export default function HeroSection() {
                             initial={{ opacity: 0, scale: 0.8, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                            className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-teal-500/10 to-emerald-500/10 border border-teal-500/20 text-teal-300 text-sm font-medium mb-10 backdrop-blur-sm"
+                            className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-orange-500/10 to-amber-500/10 border border-orange-500/20 text-orange-300 text-sm font-medium mb-10 backdrop-blur-sm"
                         >
                             <span className="relative flex h-2.5 w-2.5">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-gradient-to-r from-teal-400 to-emerald-400"></span>
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-gradient-to-r from-orange-400 to-amber-400"></span>
                             </span>
                             <span>Now Accepting Early Access</span>
                         </motion.div>
@@ -301,11 +301,11 @@ export default function HeroSection() {
                                     className="group relative px-8 py-4 rounded-full font-semibold text-white overflow-hidden"
                                 >
                                     {/* Animated gradient background */}
-                                    <div className="absolute inset-0 bg-gradient-to-r from-teal-500 via-emerald-500 to-cyan-500 animate-gradient-shift" />
+                                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 animate-gradient-shift" />
                                     
                                     {/* Glow effect */}
                                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <div className="absolute inset-0 bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-400" />
+                                        <div className="absolute inset-0 bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400" />
                                     </div>
 
                                     {/* Shine sweep */}
@@ -356,7 +356,7 @@ export default function HeroSection() {
                         >
                             {trustSignals.map((signal, idx) => (
                                 <div key={idx} className="flex items-center gap-2 text-slate-500 text-sm">
-                                    <CheckCircle2 className="w-4 h-4 text-teal-500/60" />
+                                    <CheckCircle2 className="w-4 h-4 text-orange-500/60" />
                                     <span>{signal.text}</span>
                                 </div>
                             ))}
@@ -373,24 +373,24 @@ export default function HeroSection() {
                         {/* Decorative rings */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] pointer-events-none">
                             <motion.div
-                                className="absolute inset-0 rounded-full border border-teal-500/20"
+                                className="absolute inset-0 rounded-full border border-orange-500/20"
                                 animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.1, 0.3] }}
                                 transition={{ duration: 4, repeat: Infinity }}
                             />
                             <motion.div
-                                className="absolute inset-8 rounded-full border border-emerald-500/20"
+                                className="absolute inset-8 rounded-full border border-amber-500/20"
                                 animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.1, 0.2] }}
                                 transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
                             />
                             <motion.div
-                                className="absolute inset-16 rounded-full border border-cyan-500/20"
+                                className="absolute inset-16 rounded-full border border-yellow-500/20"
                                 animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.05, 0.2] }}
                                 transition={{ duration: 4, repeat: Infinity, delay: 1 }}
                             />
                         </div>
 
                         {/* Glow behind phone */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[400px] bg-gradient-to-b from-teal-500/30 via-emerald-500/20 to-transparent blur-[80px] -z-10" />
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[400px] bg-gradient-to-b from-orange-500/30 via-amber-500/20 to-transparent blur-[80px] -z-10" />
 
                         {/* Platform Switcher - Creative pills */}
                         <motion.div 

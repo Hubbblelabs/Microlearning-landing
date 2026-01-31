@@ -62,7 +62,7 @@ export default function TargetMarketSection() {
                     {segments.map((segment, index) => (
                         <StaggerItem key={index}>
                             <Card hover className="h-full text-center group">
-                                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-teal-50 to-emerald-50 flex items-center justify-center group-hover:scale-110 transition-transform duration-[var(--transition-base)] text-teal-600">
+                                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 flex items-center justify-center group-hover:scale-110 transition-transform duration-[var(--transition-base)] text-orange-600">
                                     {segment.icon}
                                 </div>
                                 <h4 className="text-lg font-semibold text-slate-900 mb-2">

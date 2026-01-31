@@ -32,7 +32,7 @@ export default function GDPRPage() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <Badge variant="primary" size="md" className="mb-6 bg-teal-500/10 border-teal-500/20 text-teal-300">
+                            <Badge variant="primary" size="md" className="mb-6 bg-orange-500/10 border-orange-500/20 text-orange-300">
                                 Legal
                             </Badge>
                             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -58,7 +58,7 @@ export default function GDPRPage() {
                             {gdprRights.map((right, index) => (
                                 <StaggerItem key={index}>
                                     <Card hover className="h-full text-center">
-                                        <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center text-white">
+                                        <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center text-white">
                                             {right.icon}
                                         </div>
                                         <h4 className="text-lg font-semibold text-slate-900 mb-2">{right.title}</h4>

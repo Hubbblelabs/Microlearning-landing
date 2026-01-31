@@ -48,7 +48,7 @@ export default function BlogPage() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <Badge variant="primary" size="md" className="mb-6 bg-teal-500/10 border-teal-500/20 text-teal-300">
+                            <Badge variant="primary" size="md" className="mb-6 bg-orange-500/10 border-orange-500/20 text-orange-300">
                                 Blog
                             </Badge>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
@@ -69,7 +69,7 @@ export default function BlogPage() {
                                 <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800">
                                     <div className="grid lg:grid-cols-2 gap-0">
                                         <div className="p-8 lg:p-12 flex flex-col justify-center">
-                                            <Badge variant="primary" size="sm" className="mb-4 bg-teal-500/20 text-teal-300 border-teal-500/30 w-fit">
+                                            <Badge variant="primary" size="sm" className="mb-4 bg-orange-500/20 text-orange-300 border-orange-500/30 w-fit">
                                                 Featured
                                             </Badge>
                                             <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight">
@@ -120,7 +120,7 @@ export default function BlogPage() {
                                     key={category}
                                     onClick={() => setActiveCategory(category)}
                                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeCategory === category
-                                            ? 'bg-teal-600 text-white shadow-lg shadow-teal-500/25'
+                                            ? 'bg-orange-600 text-white shadow-lg shadow-orange-500/25'
                                             : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                                         }`}
                                 >
@@ -138,7 +138,7 @@ export default function BlogPage() {
                                             <div className="flex items-center gap-2 mb-4">
                                                 <Badge variant="primary" size="sm">{post.category}</Badge>
                                             </div>
-                                            <h3 className="text-lg font-semibold text-slate-900 mb-3 group-hover:text-teal-600 transition-colors">
+                                            <h3 className="text-lg font-semibold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors">
                                                 {post.title}
                                             </h3>
                                             <p className="text-slate-600 text-sm leading-relaxed mb-4 flex-1">
@@ -183,7 +183,7 @@ export default function BlogPage() {
                                 <input
                                     type="email"
                                     placeholder="Enter your email"
-                                    className="flex-1 max-w-sm px-6 py-3 rounded-full bg-slate-800 border border-slate-700 text-white placeholder:text-slate-500 focus:outline-none focus:border-teal-500"
+                                    className="flex-1 max-w-sm px-6 py-3 rounded-full bg-slate-800 border border-slate-700 text-white placeholder:text-slate-500 focus:outline-none focus:border-orange-500"
                                 />
                                 <Button variant="primary" size="lg">
                                     Subscribe

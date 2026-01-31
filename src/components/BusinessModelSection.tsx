@@ -28,14 +28,14 @@ const pricingTiers = [
         subtitle: "Monthly recurring",
         priceRange: "₹49 - ₹99",
         period: "per worker / month",
-        gradient: "from-teal-500 to-emerald-600",
+        gradient: "from-orange-500 to-amber-600",
         features: [
             "Unlimited training modules",
             "WhatsApp & SMS delivery",
             "AI chatbot support",
             "Real-time analytics dashboard",
         ],
-        iconColor: "text-teal-400",
+        iconColor: "text-orange-400",
     },
     {
         icon: <Building2 className="w-6 h-6" />,
@@ -172,7 +172,7 @@ export default function BusinessModelSection() {
             <Container>
                 {/* Section Header */}
                 <div ref={headerRef} className="text-center mb-16">
-                    <Badge variant="primary" size="md" className="mb-4 bg-teal-500/10 text-teal-400 border-teal-500/20">
+                    <Badge variant="primary" size="md" className="mb-4 bg-orange-500/10 text-orange-400 border-orange-500/20">
                         Business Model
                     </Badge>
                     <h2 className="text-white mb-6">

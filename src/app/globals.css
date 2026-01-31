@@ -2,23 +2,36 @@
 
 /* ===== DESIGN TOKENS ===== */
 :root {
-  /* Primary Colors - Teal/Green Gradient */
-  --primary-50: #f0fdfa;
-  --primary-100: #ccfbf1;
-  --primary-200: #99f6e4;
-  --primary-300: #5eead4;
-  --primary-400: #2dd4bf;
-  --primary-500: #14b8a6;
-  --primary-600: #0d9488;
-  --primary-700: #0f766e;
-  --primary-800: #115e59;
-  --primary-900: #134e4a;
+  /* Primary Colors - Orange Gradient */
+  --primary-50: #fff7ed;
+  --primary-100: #ffedd5;
+  --primary-200: #fed7aa;
+  --primary-300: #fdba74;
+  --primary-400: #fb923c;
+  --primary-500: #f97316;
+  --primary-600: #ea580c;
+  --primary-700: #c2410c;
+  --primary-800: #9a3412;
+  --primary-900: #7c2d12;
+
+  /* Navy Blue Tones */
+  --navy-50: #eef3ff;
+  --navy-100: #dce6ff;
+  --navy-200: #b4c8ff;
+  --navy-300: #7a9fff;
+  --navy-400: #4b72f5;
+  --navy-500: #2a4fcf;
+  --navy-600: #1a3ba8;
+  --navy-700: #132c7a;
+  --navy-800: #0c1a3d;
+  --navy-900: #08112a;
+  --navy-950: #040815;
 
   /* WhatsApp Green Accent */
   --whatsapp: #25D366;
   --whatsapp-dark: #128C7E;
 
-  /* Slate Tones */
+  /* Slate Tones - Navy influenced */
   --slate-50: #f8fafc;
   --slate-100: #f1f5f9;
   --slate-200: #e2e8f0;
@@ -26,10 +39,10 @@
   --slate-400: #94a3b8;
   --slate-500: #64748b;
   --slate-600: #475569;
-  --slate-700: #334155;
-  --slate-800: #1e293b;
-  --slate-900: #0f172a;
-  --slate-950: #020617;
+  --slate-700: #1e3a5f;
+  --slate-800: #0c1a3d;
+  --slate-900: #08112a;
+  --slate-950: #040815;
 
   /* Functional */
   --background: #ffffff;
@@ -38,9 +51,9 @@
   --border: #e2e8f0;
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #0d9488 0%, #059669 100%);
-  --gradient-hero: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
-  --gradient-cta: linear-gradient(135deg, #14b8a6 0%, #0d9488 50%, #059669 100%);
+  --gradient-primary: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  --gradient-hero: linear-gradient(180deg, #0c1a3d 0%, #08112a 100%);
+  --gradient-cta: linear-gradient(135deg, #fb923c 0%, #f97316 50%, #ea580c 100%);
   --gradient-light: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
 
   /* Shadows */
@@ -50,7 +63,7 @@
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
-  --shadow-glow: 0 0 40px rgba(20, 184, 166, 0.3);
+  --shadow-glow: 0 0 40px rgba(249, 115, 22, 0.3);
 
   /* Spacing System */
   --spacing-xs: 0.5rem;
@@ -228,10 +241,10 @@ h4 {
 /* Glow pulse for interactive elements */
 @keyframes glow-pulse {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(20, 184, 166, 0.3);
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(20, 184, 166, 0.5), 0 0 60px rgba(20, 184, 166, 0.2);
+    box-shadow: 0 0 40px rgba(249, 115, 22, 0.5), 0 0 60px rgba(249, 115, 22, 0.2);
   }
 }
 
@@ -299,12 +312,12 @@ h4 {
 .btn-primary {
   background: var(--gradient-cta);
   color: white;
-  box-shadow: var(--shadow-md), 0 0 20px rgba(20, 184, 166, 0.2);
+  box-shadow: var(--shadow-md), 0 0 20px rgba(249, 115, 22, 0.2);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg), 0 0 30px rgba(20, 184, 166, 0.3);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(249, 115, 22, 0.3);
 }
 
 .btn-secondary {
@@ -721,7 +734,7 @@ h4 {
 .form-input:focus,
 .form-select:focus {
   border-color: var(--primary-500);
-  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
 }
 
 .form-input::placeholder {
