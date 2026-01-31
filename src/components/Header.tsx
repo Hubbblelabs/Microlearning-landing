@@ -246,7 +246,7 @@ export default function Header() {
                         </div>
 
                         <button
-                            className="absolute top-6 right-6 p-3 text-white/80 hover:text-white bg-white/5 rounded-full border border-white/10"
+                            className="absolute top-6 right-6 z-50 p-3 text-white/80 hover:text-white bg-white/5 rounded-full border border-white/10"
                             onClick={closeMobileMenu}
                         >
                             <X className="w-6 h-6" />
